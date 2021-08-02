@@ -12,7 +12,7 @@ function setup()
     starPositions = [];
     starDirections = [];
     
-    numStars = 1;
+    numStars = 500;
     maxDist = dist(width/2, height/2, width, height);
     console.log(maxDist)
 
@@ -25,7 +25,6 @@ function setup()
         var r = pow(random(0.01,1),10) * maxDist;
         var v = p5.Vector.mult(starDirections[i],r);
         starPositions[i].add(v);
-        var d = dist(starPositions[i].x,starPositions[i].y, width/2,height/2);
     }
     
 
@@ -47,8 +46,7 @@ function draw()
         var v = p5.Vector.mult(starDirections[i],r);
         starPositions[i].add(v);
         
-        if(d > maxDist + random(0,500))
-        /   / {
+        if(d > maxDist + random(0,500)) {
             starPositions[i].set(width/2, height/2);
         }
     }
